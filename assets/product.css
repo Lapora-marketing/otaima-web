@@ -173,9 +173,12 @@ nav {
 
 /* Three.js canvas variant */
 .stage-3d-canvas {
-  min-height: 500px;
+  display: block !important;
   width: 100%;
-  display: block;
+  height: 70vh;
+  min-height: 500px;
+  aspect-ratio: auto;
+  position: relative;
 }
 .stage-3d-canvas canvas {
   width: 100% !important;
@@ -184,6 +187,20 @@ nav {
   position: relative;
   z-index: 1;
   outline: none;
+}
+.stage-3d-canvas .fallback-img {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 0;
+}
+.stage-3d-canvas .fallback-img img {
+  max-width: 70%; max-height: 90%; object-fit: contain;
+  filter: drop-shadow(0 50px 80px rgba(0, 0, 0, 0.85));
+  animation: floatBag 6s ease-in-out infinite;
+}
+@keyframes floatBag {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
 }
 
 /* Legacy CSS 3D (for sobres page) */

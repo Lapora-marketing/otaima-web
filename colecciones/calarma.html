@@ -266,13 +266,12 @@
 
 <!-- 3D Bag Renderer (Three.js) -->
 <script type="module">
-  import { CoffeeBag3D } from '../assets/bag-3d.js';
+  import { CoffeeBag3D, isWebGLAvailable } from '../assets/bag-3d.js';
 
   const container = document.getElementById('bag3DContainer');
-  if (container) {
+  if (container && isWebGLAvailable()) {
     new CoffeeBag3D(container, {
       textureUrl: '../img/calarma.png',
-      // Calarma layout: frente (0-0.25), dorso (0.25-0.5), laterales (0.5-1.0)
       frontU: 0.005, frontW: 0.245,
       backU: 0.265,  backW: 0.245,
       sideU: 0.52,   sideW: 0.16,
@@ -281,7 +280,25 @@
       bagHeight: 3.4,
       bagDepth: 0.8
     });
+  } else if (container) {
+    container.innerHTML = '<div class="fallback-img"><img src="../img/calarma.png" alt="OTAIMA Calarma" style="object-fit:cover; object-position:0% center; width:35%; height:90%;"></div>';
   }
+</script>
+
+<!-- Fallback if module fails to load -->
+<noscript>
+  <style>#bag3DContainer { background-image: url('../img/calarma.png'); background-size: 200% auto; background-position: -10% center; background-repeat: no-repeat; }</style>
+</noscript>
+
+<script>
+  // Last resort fallback: if module didn't kick in within 4s, show static image
+  setTimeout(() => {
+    const c = document.getElementById('bag3DContainer');
+    if (c && !c.querySelector('canvas') && !c.querySelector('.fallback-img')) {
+      console.warn('3D module did not initialize, showing image fallback');
+      c.innerHTML = '<div class="fallback-img"><img src="../img/calarma.png" alt="OTAIMA Calarma" style="object-fit:cover; object-position:0% center; width:35%; height:90%;"></div>';
+    }
+  }, 4000);
 </script>
 </body>
 </html>

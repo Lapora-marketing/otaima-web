@@ -252,10 +252,10 @@
 
 <!-- 3D Bag Renderer (Three.js) -->
 <script type="module">
-  import { CoffeeBag3D } from '../assets/bag-3d.js';
+  import { CoffeeBag3D, isWebGLAvailable } from '../assets/bag-3d.js';
 
   const container = document.getElementById('bag3DContainer');
-  if (container) {
+  if (container && isWebGLAvailable()) {
     new CoffeeBag3D(container, {
       textureUrl: '../img/locomboco.png',
       frontU: 0.005, frontW: 0.245,
@@ -266,7 +266,18 @@
       bagHeight: 3.4,
       bagDepth: 0.8
     });
+  } else if (container) {
+    container.innerHTML = '<div class="fallback-img"><img src="../img/locomboco.png" alt="OTAIMA Locomboco" style="object-fit:cover; object-position:0% center; width:35%; height:90%;"></div>';
   }
+</script>
+
+<script>
+  setTimeout(() => {
+    const c = document.getElementById('bag3DContainer');
+    if (c && !c.querySelector('canvas') && !c.querySelector('.fallback-img')) {
+      c.innerHTML = '<div class="fallback-img"><img src="../img/locomboco.png" alt="OTAIMA Locomboco" style="object-fit:cover; object-position:0% center; width:35%; height:90%;"></div>';
+    }
+  }, 4000);
 </script>
 </body>
 </html>
