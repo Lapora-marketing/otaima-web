@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTAIMA Sobres 20g — El ritual diario · Café Premium del Tolima</title>
+<meta name="description" content="Sobres individuales OTAIMA de 20g. Calidad premium del Tolima en formato hermético. Ideal para hoteles, oficinas y rituales personales.">
+<meta name="theme-color" content="#0a0807">
+<link rel="canonical" href="https://otaima.co/colecciones/sobres">
+
+<meta property="og:type" content="product">
+<meta property="og:title" content="OTAIMA Sobres 20g — El ritual diario">
+<meta property="og:description" content="Café premium del Tolima en sobres individuales de 20g.">
+<meta property="og:image" content="https://otaima.co/img/sobres.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "OTAIMA Sobres Individuales 20g",
+  "image": "https://otaima.co/img/sobres.png",
+  "description": "Sobres individuales de café premium 20g. Café molido del Tolima en formato hermético. Perfecto para hoteles, oficinas y momentos donde la calidad no se compromete.",
+  "brand": {"@type": "Brand", "name": "OTAIMA"},
+  "category": "Café molido individual",
+  "offers": {"@type": "Offer", "priceCurrency": "COP", "availability": "https://schema.org/InStock"}
+}
+</script>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0807'/><text x='50' y='68' font-family='Georgia,serif' font-size='52' font-weight='300' fill='%23c9a961' text-anchor='middle'>O</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../assets/product.css">
+
+<style>
+  :root {
+    --accent: #c9a961;
+    --accent-soft: rgba(201, 169, 97, 0.18);
+  }
+  body { background: linear-gradient(180deg, var(--bg) 0%, #0d0a08 100%); }
+
+  /* Override stage for sobres - more elongated */
+  .stage-3d { aspect-ratio: 1/1; }
+  .bag-3d { width: 70%; height: 95%; }
+  .sobres-stack {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    transform-style: preserve-3d;
+  }
+  .sobre-item {
+    position: absolute;
+    width: 25%; height: 70%;
+    transition: transform 0.8s var(--ease);
+  }
+  .sobre-item img {
+    width: 100%; height: 100%; object-fit: contain;
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.7));
+  }
+  .sobre-item:nth-child(1) { transform: translateX(-110%) translateZ(-30px) rotateY(20deg); }
+  .sobre-item:nth-child(2) { transform: translateX(-55%) translateZ(0) rotateY(10deg); z-index: 2; }
+  .sobre-item:nth-child(3) { transform: translateX(0) translateZ(30px); z-index: 3; }
+  .sobre-item:nth-child(4) { transform: translateX(55%) translateZ(0) rotateY(-10deg); z-index: 2; }
+  .sobre-item:nth-child(5) { transform: translateX(110%) translateZ(-30px) rotateY(-20deg); }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+</head>
+<body>
+
+<div class="loader" id="loader"><div class="loader-logo">OTAIMA</div></div>
+
+<nav>
+  <a href="../index.html#colecciones" class="nav-back">← Volver</a>
+  <a href="../index.html" class="nav-logo">OTAIMA</a>
+  <a href="#comprar" class="nav-cta">Comprar</a>
+</nav>
+
+<section class="product-hero">
+  <div class="product-info">
+    <div class="product-breadcrumb">
+      <a href="../index.html">OTAIMA</a>
+      <span>›</span>
+      <a href="../index.html#colecciones">Colecciones</a>
+      <span>›</span>
+      <span>Sobres 20g</span>
+    </div>
+    <div class="product-line">Sobres Individuales · 20g</div>
+    <h1 class="product-name">Ritual</h1>
+    <div class="product-tagline">El Tolima en 20 gramos</div>
+    <p class="product-intro">La calidad de nuestras ediciones especiales en el formato más práctico. Sobres individuales herméticos, perfectos para hoteles, oficinas, viajes y rituales personales que no admiten compromisos.</p>
+    <div class="product-actions">
+      <a href="#comprar" class="btn-primary">Comprar Caja · $42.000</a>
+      <a href="#historia" class="btn-secondary"><span>Conocer la Historia</span> <span class="arrow">↓</span></a>
+    </div>
+  </div>
+
+  <div class="stage-3d" aria-label="Vista 3D interactiva de los sobres OTAIMA">
+    <div class="bag-3d">
+      <div class="sobres-stack">
+        <div class="sobre-item"><img src="../img/sobres.png" alt="Sobre OTAIMA 20g" style="object-position: -8% 0%;"></div>
+        <div class="sobre-item"><img src="../img/sobres.png" alt="Sobre OTAIMA 20g" style="object-position: -28% 0%;"></div>
+        <div class="sobre-item"><img src="../img/sobres.png" alt="Sobre OTAIMA 20g principal" style="object-position: -48% 0%;"></div>
+        <div class="sobre-item"><img src="../img/sobres.png" alt="Sobre OTAIMA 20g" style="object-position: -68% 0%;"></div>
+        <div class="sobre-item"><img src="../img/sobres.png" alt="Sobre OTAIMA 20g" style="object-position: -88% 0%;"></div>
+      </div>
+    </div>
+    <div class="rotation-hint">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9"/><polyline points="3 4 3 12 11 12"/></svg>
+      Arrastra para rotar
+    </div>
+  </div>
+</section>
+
+<section class="historia" id="historia">
+  <div class="historia-container">
+    <div class="reveal">
+      <div class="section-label centered">La historia detrás del formato</div>
+      <h2 class="section-title centered">Calidad sin <em>compromiso</em>.</h2>
+    </div>
+
+    <div class="historia-text reveal">
+      <p>Los sobres OTAIMA nacieron de una pregunta sencilla: <strong>¿cómo llevamos la calidad de nuestras ediciones especiales a los momentos cotidianos?</strong> La respuesta fueron estos sobres individuales de 20 gramos, diseñados para preservar el aroma, la frescura y la complejidad de cada grano sin comprometer la calidad.</p>
+
+      <p>Dentro de cada sobre hay <strong>café molido en el punto justo</strong> para una taza perfecta — 180ml de café que conserva todas las virtudes del Tolima. El empaque hermético protege la frescura por meses, manteniendo cada grano como si recién hubiera salido del tostador.</p>
+
+      <blockquote class="historia-quote">
+        Cada sobre es una destilación del Tolima en su forma más práctica.
+      </blockquote>
+
+      <p>Pensamos en cada momento donde podría aparecer: el <strong>hotel boutique</strong> que quiere recibir a sus huéspedes con un café excepcional, la <strong>oficina exigente</strong> donde el café no es un trámite, el <strong>viajero</strong> que no renuncia al buen café en ningún destino, y el <strong>ritual personal</strong> de quien se toma cinco minutos cada mañana para honrar el día que empieza.</p>
+
+      <p>La altura del Tolima, la mano del campesino, la paciencia del tostador — todo concentrado en un gesto simple: <strong>rasgar, verter, disfrutar</strong>. Una taza perfecta. Cada vez. Sin máquinas costosas, sin rituales complicados, sin renunciar a nada.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cata">
+  <div class="cata-container">
+    <div class="cata-visual reveal">
+      <div class="cata-circle">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8">
+          <rect x="7" y="3" width="10" height="18" rx="1"/>
+          <line x1="10" y1="7" x2="14" y2="7"/>
+          <line x1="9" y1="11" x2="15" y2="11"/>
+          <line x1="10" y1="15" x2="14" y2="15"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="section-label">Perfil de Cata</div>
+      <h2 class="section-title">Balanceado y <em>aromático</em>.</h2>
+
+      <div class="perfil-sabor">
+        <div class="perfil-titulo">Perfil de Taza</div>
+        <div class="perfil-row">
+          <div class="perfil-label">Cuerpo</div>
+          <div class="perfil-dots">
+            <div class="perfil-dot filled"></div><div class="perfil-dot filled"></div><div class="perfil-dot filled"></div><div class="perfil-dot"></div><div class="perfil-dot"></div>
+          </div>
+        </div>
+        <div class="perfil-row">
+          <div class="perfil-label">Acidez</div>
+          <div class="perfil-dots">
+            <div class="perfil-dot filled"></div><div class="perfil-dot filled"></div><div class="perfil-dot filled"></div><div class="perfil-dot"></div><div class="perfil-dot"></div>
+          </div>
+        </div>
+        <div class="perfil-row">
+          <div class="perfil-label">Dulzor</div>
+          <div class="perfil-dots">
+            <div class="perfil-dot filled"></div><div class="perfil-dot filled"></div><div class="perfil-dot filled"></div><div class="perfil-dot filled"></div><div class="perfil-dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="notas-list">
+        <li>Chocolate</li>
+        <li>Caramelo</li>
+        <li>Frutos secos</li>
+        <li>Panela</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="metodos">
+  <div class="metodos-header reveal">
+    <div class="section-label centered">Preparación</div>
+    <h2 class="section-title centered">Tres pasos. <em>Una taza perfecta</em>.</h2>
+  </div>
+
+  <div class="metodos-grid">
+    <div class="metodo-card">
+      <div class="metodo-icon">
+        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <rect x="8" y="3" width="8" height="18" rx="1"/>
+          <line x1="6" y1="6" x2="9" y2="9"/>
+          <line x1="18" y1="6" x2="15" y2="9"/>
+        </svg>
+      </div>
+      <h3>01 · Dosis</h3>
+      <p>Rasga el sobre por la línea marcada. Cada sobre contiene 20g de café molido en el punto óptimo.</p>
+      <div class="metodo-ratio">1 sobre · 1 taza</div>
+    </div>
+
+    <div class="metodo-card">
+      <div class="metodo-icon">
+        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M5 8 L19 8 L17 20 L7 20 Z"/>
+          <path d="M10 8 L10 5 L14 5 L14 8"/>
+          <path d="M19 12 L21 12 L21 16 L19 16"/>
+        </svg>
+      </div>
+      <h3>02 · Agua</h3>
+      <p>180ml de agua a 92°C. Si no tienes termómetro: agua que hierve, esperas 30 segundos.</p>
+      <div class="metodo-ratio">180 ml · 92°C</div>
+    </div>
+
+    <div class="metodo-card">
+      <div class="metodo-icon">
+        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M6 14 L6 20 L18 20 L18 14"/>
+          <path d="M6 14 Q6 10 12 10 Q18 10 18 14"/>
+          <path d="M9 7 Q11 4 9 2"/>
+          <path d="M12 7 Q14 4 12 2"/>
+        </svg>
+      </div>
+      <h3>03 · Disfruta</h3>
+      <p>Vierte el agua caliente sobre el café. Espera 3 minutos. Tu Tolima está listo.</p>
+      <div class="metodo-ratio">3 minutos · 1 ritual</div>
+    </div>
+  </div>
+</section>
+
+<section class="specs">
+  <div class="specs-header reveal">
+    <div class="section-label centered">Ficha técnica</div>
+    <h2 class="section-title centered">Hecho para <em>llevarte</em>.</h2>
+  </div>
+
+  <div class="specs-grid">
+    <div class="spec-item">
+      <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="6" y="2" width="12" height="20" rx="1"/><line x1="9" y1="7" x2="15" y2="7"/></svg>
+      <div class="spec-value">20 g</div>
+      <div class="spec-label">Por Sobre</div>
+    </div>
+    <div class="spec-item">
+      <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="9"/><path d="M12 3 Q15 7 12 12 Q9 17 12 21"/></svg>
+      <div class="spec-value">100%</div>
+      <div class="spec-label">Café Arábica</div>
+    </div>
+    <div class="spec-item">
+      <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="4" y="6" width="16" height="14" rx="1"/><rect x="8" y="2" width="8" height="4"/></svg>
+      <div class="spec-value">20 uds.</div>
+      <div class="spec-label">Por Caja</div>
+    </div>
+    <div class="spec-item">
+      <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+      <div class="spec-value">12 meses</div>
+      <div class="spec-label">Frescura</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="comprar">
+  <div class="reveal">
+    <div class="section-label centered">Ritual</div>
+    <h2>El <em>Tolima</em> que cabe en tu bolsillo.</h2>
+    <p>Caja de 20 sobres individuales. Suficiente para 20 mañanas perfectas, o para ofrecer un café excepcional a cada huésped.</p>
+    <a href="#" class="btn-primary">Comprar Caja · $42.000</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-brand">OTAIMA</div>
+    <div class="footer-meta">© 2026 OTAIMA · Tolima, Colombia · Diseñado por Lapora</div>
+  </div>
+</footer>
+
+<script src="../assets/product.js"></script>
+<script>
+// Sobres: efecto de fan en el stack al hover
+document.querySelectorAll('.sobre-item').forEach((item, i) => {
+  item.addEventListener('mouseenter', () => {
+    if (typeof anime !== 'undefined') {
+      anime({
+        targets: item,
+        translateY: -20,
+        duration: 600,
+        easing: 'easeOutElastic(1, 0.5)'
+      });
+    }
+  });
+  item.addEventListener('mouseleave', () => {
+    if (typeof anime !== 'undefined') {
+      anime({
+        targets: item,
+        translateY: 0,
+        duration: 600,
+        easing: 'easeOutQuart'
+      });
+    }
+  });
+});
+</script>
+</body>
+</html>

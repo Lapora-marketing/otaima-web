@@ -5,6 +5,59 @@ All notable changes to the OTAIMA website project will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-05-14
+
+### Added — Product detail pages with 3D interactive viewer 🎨
+
+Four dedicated product pages with Tolima-rooted storytelling:
+
+- **`colecciones/calarma.html`** — Edición Especial · 500g
+  Historia del Páramo de Las Hermosas (Cajamarca, Tolima)
+  Perfil 3/4/5 (cuerpo/acidez/dulzor), notas: chocolate, cítricos, caramelo
+  Métodos V60, Prensa Francesa, Cafetera Moka
+
+- **`colecciones/locomboco.html`** — Trilogía Exótica · 500g
+  Historia del Nevado del Tolima
+  Perfil 4/3/4, notas: chocolate dulce, cítricos, caramelo, tabaco
+  Métodos Chemex, Prensa Francesa, Espresso
+  Accent color: cobre (#c8946a)
+
+- **`colecciones/do.html`** — Café de Origen · 500g
+  Historia del sur del Tolima (Planadas, Rioblanco)
+  Perfil 2/3/4, notas suaves: chocolate de leche, caramelo, frutos secos
+  Métodos V60, AeroPress, Cafetera Moka
+  Accent color: marfil (#e6c989)
+
+- **`colecciones/sobres.html`** — Sobres Individuales 20g
+  Historia del ritual diario
+  Display 3D tipo "fan stack" con 5 sobres en perspectiva
+  Métodos: Dosis, Agua, Disfruta (3 pasos simples)
+  Hover individual con `easeOutElastic` por sobre
+
+### 3D Interactive Viewer
+- CSS 3D `transform-style: preserve-3d` + perspective
+- Auto-rotación continua (idle state)
+- Drag to rotate (mouse + touch)
+- Scroll-driven micro-rotation
+- Resume auto-rotate después de 2.5s idle
+- Drop shadows dinámicas
+
+### Shared Assets
+- `assets/product.css` — Estilos de página de producto (700+ líneas)
+- `assets/product.js` — Lógica 3D + anime.js animations
+
+### Schema.org
+- JSON-LD Product schema en cada página
+- Open Graph product type
+- Canonical URLs por página
+
+### Updated
+- Index: `Explorar` links ahora apuntan a páginas individuales
+- Sitemap.xml: 4 nuevas URLs de colecciones
+- Cards de colección ahora son `<a>` tags completos (mejor UX + SEO)
+
+---
+
 ## [1.1.0] - 2026-05-14
 
 ### Added — Anime.js animation engine 🎬
