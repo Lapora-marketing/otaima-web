@@ -88,6 +88,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="img/hero-trilogia.png" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- ANIME.JS - https://animejs.com/ -->
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
 <style>
 :root {
   --bg: #0a0807;
@@ -206,8 +209,7 @@ nav.scrolled {
 .hero-content { position: relative; z-index: 2; }
 .hero-tagline {
   font-size: 0.7rem; letter-spacing: 0.5em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 2rem;
-  opacity: 0; animation: fadeUp 1s var(--ease) 0.5s forwards;
+  color: var(--gold); margin-bottom: 2rem; opacity: 0;
 }
 .hero-title {
   font-family: var(--serif); font-size: clamp(3.5rem, 8vw, 7rem);
@@ -215,28 +217,26 @@ nav.scrolled {
   color: var(--cream); margin-bottom: 1rem;
 }
 .hero-title .char {
-  display: inline-block; opacity: 0; transform: translateY(50px);
-  animation: charReveal 1s var(--ease) forwards;
+  display: inline-block; opacity: 0;
 }
 .hero-italic {
   font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-style: italic; color: var(--gold); margin-bottom: 2rem;
-  opacity: 0; animation: fadeUp 1s var(--ease) 1.5s forwards;
+  font-style: italic; color: var(--gold); margin-bottom: 2rem; opacity: 0;
 }
 .hero-subtitle {
   font-size: 1rem; color: var(--text-dim);
-  max-width: 480px; margin-bottom: 3rem; line-height: 1.7;
-  opacity: 0; animation: fadeUp 1s var(--ease) 1.8s forwards;
+  max-width: 480px; margin-bottom: 3rem; line-height: 1.7; opacity: 0;
 }
 .hero-cta {
   display: inline-flex; align-items: center; gap: 1rem;
   padding: 1.2rem 2.5rem; background: transparent;
   border: 1px solid var(--gold); color: var(--gold);
   text-decoration: none; font-size: 0.75rem; letter-spacing: 0.3em;
-  text-transform: uppercase; transition: all 0.5s var(--ease);
-  position: relative; overflow: hidden;
-  opacity: 0; animation: fadeUp 1s var(--ease) 2.2s forwards; cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.5s var(--ease), color 0.5s var(--ease), border-color 0.5s var(--ease);
+  position: relative; overflow: hidden; cursor: pointer;
 }
+.hero-content .hero-cta { opacity: 0; }
 .hero-cta span { position: relative; z-index: 2; transition: color 0.4s; }
 .hero-cta::before {
   content: ''; position: absolute; inset: 0; background: var(--gold);
@@ -250,7 +250,6 @@ nav.scrolled {
 
 .hero-image-wrap {
   position: relative; opacity: 0;
-  animation: fadeIn 1.2s var(--ease) 1s forwards;
 }
 .hero-image-wrap::before {
   content: ''; position: absolute; inset: -5%;
@@ -260,18 +259,13 @@ nav.scrolled {
 .hero-image-wrap img {
   position: relative; z-index: 1;
   filter: drop-shadow(0 50px 80px rgba(0, 0, 0, 0.8));
-  animation: float 8s ease-in-out infinite;
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
 }
 
 .scroll-hint {
   position: absolute; bottom: 3rem; left: 50%;
   transform: translateX(-50%); color: var(--text-dim);
   font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
-  opacity: 0; animation: fadeUp 1s var(--ease) 2.5s forwards;
+  opacity: 0;
   display: flex; flex-direction: column; align-items: center; gap: 1rem; z-index: 3;
 }
 .scroll-hint::after {
@@ -1633,19 +1627,98 @@ footer {
 </footer>
 
 <script>
-// ─── LOADER ───
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('hidden');
-  }, 1500);
-});
+// ═══════════════════════════════════════════════════════
+//  OTAIMA Web · Animations powered by anime.js
+//  https://animejs.com/
+// ═══════════════════════════════════════════════════════
 
-// ─── HERO TITLE CHAR ANIMATION ───
+// ─── HERO TITLE: Split into chars (CSS-fallback animated) ───
 const heroTitle = document.getElementById('heroTitle');
 const text = heroTitle.textContent;
-heroTitle.innerHTML = text.split('').map((char, i) =>
-  `<span class="char" style="animation-delay:${0.8 + i * 0.08}s">${char}</span>`
+heroTitle.innerHTML = text.split('').map(char =>
+  `<span class="char" style="display:inline-block; opacity:0;">${char}</span>`
 ).join('');
+
+// ─── LOADER + HERO TIMELINE (anime.js) ───
+window.addEventListener('load', () => {
+  // Wait until anime.js is loaded
+  const waitForAnime = setInterval(() => {
+    if (typeof anime === 'undefined') return;
+    clearInterval(waitForAnime);
+
+    // Master timeline: loader → hero reveal
+    const tl = anime.timeline({ easing: 'cubicBezier(0.16, 1, 0.3, 1)' });
+
+    tl
+      .add({
+        targets: '.loader-logo',
+        scale: [1, 1.05],
+        duration: 1200,
+        easing: 'easeInOutQuad'
+      })
+      .add({
+        targets: '#loader',
+        opacity: [1, 0],
+        duration: 800,
+        complete: () => document.getElementById('loader').style.display = 'none'
+      }, '-=400')
+      .add({
+        targets: '.hero-tagline',
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 800
+      }, '-=400')
+      .add({
+        targets: '#heroTitle .char',
+        opacity: [0, 1],
+        translateY: [60, 0],
+        rotateX: [-90, 0],
+        delay: anime.stagger(60),
+        duration: 900
+      }, '-=600')
+      .add({
+        targets: '.hero-italic',
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 800
+      }, '-=400')
+      .add({
+        targets: '.hero-subtitle',
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 800
+      }, '-=600')
+      .add({
+        targets: '.hero-content .hero-cta',
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 800
+      }, '-=600')
+      .add({
+        targets: '.hero-image-wrap',
+        opacity: [0, 1],
+        scale: [0.92, 1],
+        duration: 1200,
+        easing: 'easeOutExpo'
+      }, '-=1500')
+      .add({
+        targets: '.scroll-hint',
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 600
+      }, '-=300');
+
+    // Continuous floating animation for hero image
+    anime({
+      targets: '.hero-image-wrap img',
+      translateY: [-15, 15],
+      direction: 'alternate',
+      loop: true,
+      duration: 4000,
+      easing: 'easeInOutSine'
+    });
+  }, 50);
+});
 
 // ─── CUSTOM CURSOR ───
 const cursor = document.getElementById('cursor');
@@ -1683,34 +1756,108 @@ window.addEventListener('scroll', () => {
   else nav.classList.remove('scrolled');
 });
 
-// ─── REVEAL ON SCROLL ───
+// ─── REVEAL ON SCROLL (powered by anime.js) ───
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-      const counters = entry.target.querySelectorAll('.stat-number');
+    if (!entry.isIntersecting || entry.target.dataset.revealed) return;
+    entry.target.dataset.revealed = 'true';
+    entry.target.classList.add('in-view');
+
+    // Anime.js reveal for elements with .anime-reveal class
+    if (entry.target.classList.contains('anime-reveal')) {
+      anime({
+        targets: entry.target,
+        opacity: [0, 1],
+        translateY: [60, 0],
+        duration: 1100,
+        easing: 'cubicBezier(0.16, 1, 0.3, 1)'
+      });
+    }
+
+    // Stagger animation for collection cards
+    if (entry.target.classList.contains('colecciones-grid')) {
+      anime({
+        targets: '.colecciones-grid .coleccion-card',
+        opacity: [0, 1],
+        translateY: [80, 0],
+        scale: [0.95, 1],
+        delay: anime.stagger(150),
+        duration: 1000,
+        easing: 'cubicBezier(0.16, 1, 0.3, 1)'
+      });
+    }
+
+    // Stagger for proceso steps
+    if (entry.target.classList.contains('proceso-grid')) {
+      anime({
+        targets: '.proceso-grid .proceso-paso',
+        opacity: [0, 1],
+        translateY: [60, 0],
+        delay: anime.stagger(120),
+        duration: 900,
+        easing: 'cubicBezier(0.16, 1, 0.3, 1)'
+      });
+    }
+
+    // Stagger for blog cards
+    if (entry.target.classList.contains('blog-grid')) {
+      anime({
+        targets: '.blog-grid .blog-card',
+        opacity: [0, 1],
+        translateY: [60, 0],
+        rotateX: [10, 0],
+        delay: anime.stagger(150),
+        duration: 1000,
+        easing: 'cubicBezier(0.16, 1, 0.3, 1)'
+      });
+    }
+
+    // Animated counters in stats section
+    const counters = entry.target.querySelectorAll('.stat-number');
+    if (counters.length > 0) {
+      // Reveal stats with stagger
+      anime({
+        targets: '.stat',
+        opacity: [0, 1],
+        translateY: [40, 0],
+        delay: anime.stagger(120),
+        duration: 800,
+        easing: 'easeOutExpo'
+      });
+      // Count up numbers
       counters.forEach(counter => {
         if (counter.dataset.animated) return;
         counter.dataset.animated = 'true';
         const target = parseInt(counter.dataset.target);
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
-        const interval = setInterval(() => {
-          current += step;
-          if (current >= target) {
-            counter.textContent = target.toLocaleString();
-            clearInterval(interval);
-          } else {
-            counter.textContent = Math.floor(current).toLocaleString();
+        const obj = { val: 0 };
+        anime({
+          targets: obj,
+          val: target,
+          duration: 2200,
+          easing: 'easeOutExpo',
+          round: 1,
+          update: () => {
+            counter.textContent = obj.val.toLocaleString();
           }
-        }, 16);
+        });
+      });
+    }
+
+    // Galería items stagger
+    if (entry.target.classList.contains('galeria-grid')) {
+      anime({
+        targets: '.galeria-grid .galeria-item',
+        opacity: [0, 1],
+        scale: [0.85, 1],
+        delay: anime.stagger(80, { grid: [4, 3], from: 'center' }),
+        duration: 900,
+        easing: 'cubicBezier(0.16, 1, 0.3, 1)'
       });
     }
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll('.reveal, .reveal-stagger, .showcase').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal, .reveal-stagger, .showcase, .anime-reveal, .colecciones-grid, .proceso-grid, .blog-grid, .stats-grid, .galeria-grid').forEach(el => observer.observe(el));
 
 // ─── PARALLAX HERO ───
 window.addEventListener('scroll', () => {
@@ -1726,18 +1873,93 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ─── MAGNETIC BUTTONS ───
-document.querySelectorAll('.nav-cta').forEach(btn => {
+// ─── MAGNETIC BUTTONS (smooth with anime.js) ───
+document.querySelectorAll('.nav-cta, .hero-cta, .form-submit').forEach(btn => {
   btn.addEventListener('mousemove', e => {
     const rect = btn.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+    anime({
+      targets: btn,
+      translateX: x * 0.2,
+      translateY: y * 0.2,
+      duration: 400,
+      easing: 'easeOutQuart'
+    });
   });
   btn.addEventListener('mouseleave', () => {
-    btn.style.transform = 'translate(0, 0)';
+    anime({
+      targets: btn,
+      translateX: 0,
+      translateY: 0,
+      duration: 600,
+      easing: 'easeOutElastic(1, 0.5)'
+    });
   });
 });
+
+// ─── PROCESO ICONS: Rotate on hover with anime ───
+document.querySelectorAll('.proceso-paso').forEach(paso => {
+  const icon = paso.querySelector('.proceso-icon');
+  paso.addEventListener('mouseenter', () => {
+    anime({ targets: icon, rotate: '+=360', scale: [1, 1.1, 1], duration: 800, easing: 'easeOutBack' });
+  });
+});
+
+// ─── MARQUEE: Subtle pulsing on items ───
+anime({
+  targets: '.marquee-item',
+  opacity: [0.4, 1],
+  delay: anime.stagger(200),
+  direction: 'alternate',
+  loop: true,
+  duration: 2000,
+  easing: 'easeInOutSine'
+});
+
+// ─── SCROLL HINT: Continuous bounce ───
+anime({
+  targets: '.scroll-hint',
+  translateY: [0, 10],
+  direction: 'alternate',
+  loop: true,
+  duration: 1500,
+  easing: 'easeInOutQuad'
+});
+
+// ─── HERO MOUNTAIN PARALLAX (anime.js) ───
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  if (scrolled < window.innerHeight) {
+    anime.set('.hero-mountains', {
+      translateY: scrolled * 0.3,
+      opacity: 1 - (scrolled / window.innerHeight) * 0.5
+    });
+  }
+});
+
+// ─── LANGUAGE SWITCH ANIMATION ───
+const originalSwitchLang = switchLanguage;
+window.switchLanguage = function(lang) {
+  // Animate fade out → switch → fade in for all translatable elements
+  const translatables = document.querySelectorAll('[data-es][data-en]:not(.lang-btn):not(.nav-cta)');
+  anime({
+    targets: translatables,
+    opacity: [1, 0.3],
+    duration: 200,
+    easing: 'easeOutQuad',
+    complete: () => {
+      originalSwitchLang(lang);
+      anime({
+        targets: translatables,
+        opacity: [0.3, 1],
+        translateY: [10, 0],
+        duration: 400,
+        easing: 'easeOutExpo'
+      });
+    }
+  });
+};
 
 // ─── LANGUAGE SWITCHER ───
 const langButtons = document.querySelectorAll('.lang-btn');
@@ -1796,16 +2018,55 @@ if (contactForm) {
   });
 }
 
-// ─── FICHA TECNICA TABS ───
+// ─── FICHA TECNICA TABS (anime.js transitions) ───
 const tabs = document.querySelectorAll('.ficha-tab');
 const contents = document.querySelectorAll('.ficha-content');
 tabs.forEach(tab => {
   tab.addEventListener('click', () => {
     const target = tab.dataset.tab;
+    const activeContent = document.querySelector('.ficha-content.active');
+    const newContent = document.getElementById('tab-' + target);
+
+    if (activeContent === newContent) return;
+
     tabs.forEach(t => t.classList.remove('active'));
-    contents.forEach(c => c.classList.remove('active'));
     tab.classList.add('active');
-    document.getElementById('tab-' + target).classList.add('active');
+
+    // Fade out current, fade in new
+    anime({
+      targets: activeContent,
+      opacity: [1, 0],
+      translateY: [0, 20],
+      duration: 400,
+      easing: 'easeOutQuad',
+      complete: () => {
+        contents.forEach(c => c.classList.remove('active'));
+        newContent.classList.add('active');
+        // Animate perfil dots filling
+        anime({
+          targets: newContent,
+          opacity: [0, 1],
+          translateY: [20, 0],
+          duration: 600,
+          easing: 'cubicBezier(0.16, 1, 0.3, 1)'
+        });
+        anime({
+          targets: newContent.querySelectorAll('.perfil-dot.filled'),
+          scale: [0, 1],
+          delay: anime.stagger(60),
+          duration: 400,
+          easing: 'easeOutBack'
+        });
+        anime({
+          targets: newContent.querySelectorAll('.spec'),
+          opacity: [0, 1],
+          translateY: [20, 0],
+          delay: anime.stagger(80),
+          duration: 600,
+          easing: 'easeOutExpo'
+        });
+      }
+    });
   });
 });
 
@@ -1819,13 +2080,45 @@ const lightboxNext = document.getElementById('lightboxNext');
 let currentImgIndex = 0;
 const galleryImages = Array.from(galleryItems).map(i => i.dataset.img);
 
-galleryItems.forEach((item, index) => {
-  item.addEventListener('click', () => {
-    currentImgIndex = index;
-    lightboxImg.src = galleryImages[currentImgIndex];
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
+function openLightbox(index) {
+  currentImgIndex = index;
+  lightboxImg.src = galleryImages[currentImgIndex];
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  anime({
+    targets: lightboxImg,
+    scale: [0.85, 1],
+    opacity: [0, 1],
+    duration: 500,
+    easing: 'easeOutExpo'
   });
+}
+
+function changeLightboxImage(direction) {
+  anime({
+    targets: lightboxImg,
+    translateX: direction === 'next' ? [0, -50] : [0, 50],
+    opacity: [1, 0],
+    duration: 250,
+    easing: 'easeInQuad',
+    complete: () => {
+      currentImgIndex = direction === 'next'
+        ? (currentImgIndex + 1) % galleryImages.length
+        : (currentImgIndex - 1 + galleryImages.length) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentImgIndex];
+      anime({
+        targets: lightboxImg,
+        translateX: direction === 'next' ? [50, 0] : [-50, 0],
+        opacity: [0, 1],
+        duration: 350,
+        easing: 'easeOutExpo'
+      });
+    }
+  });
+}
+
+galleryItems.forEach((item, index) => {
+  item.addEventListener('click', () => openLightbox(index));
 });
 
 lightboxClose.addEventListener('click', () => {
@@ -1838,16 +2131,8 @@ lightbox.addEventListener('click', e => {
     document.body.style.overflow = '';
   }
 });
-lightboxPrev.addEventListener('click', e => {
-  e.stopPropagation();
-  currentImgIndex = (currentImgIndex - 1 + galleryImages.length) % galleryImages.length;
-  lightboxImg.src = galleryImages[currentImgIndex];
-});
-lightboxNext.addEventListener('click', e => {
-  e.stopPropagation();
-  currentImgIndex = (currentImgIndex + 1) % galleryImages.length;
-  lightboxImg.src = galleryImages[currentImgIndex];
-});
+lightboxPrev.addEventListener('click', e => { e.stopPropagation(); changeLightboxImage('prev'); });
+lightboxNext.addEventListener('click', e => { e.stopPropagation(); changeLightboxImage('next'); });
 document.addEventListener('keydown', e => {
   if (!lightbox.classList.contains('active')) return;
   if (e.key === 'Escape') lightboxClose.click();

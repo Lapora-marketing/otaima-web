@@ -161,11 +161,12 @@ El formulario actualmente solo registra los datos en consola. Elige una opción:
 | **HTML5** | Estructura semántica |
 | **CSS3** | Animaciones, Grid, Custom Properties |
 | **JavaScript (vanilla)** | Interactividad, IntersectionObserver, Lightbox |
+| **[anime.js](https://animejs.com/)** v3.2.2 | Motor de animaciones — timelines, stagger, easing |
 | **Google Fonts** | Cormorant Garamond + Inter |
 | **SVG** | Iconos y favicon inline |
 | **Schema.org JSON-LD** | SEO estructurado |
 
-**Sin frameworks. Sin dependencias. Sin build step.**
+**Una sola dependencia (anime.js vía CDN). Sin build step. Sin npm install.**
 
 ---
 

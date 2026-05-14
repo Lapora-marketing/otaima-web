@@ -5,6 +5,27 @@ All notable changes to the OTAIMA website project will be documented in this fil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-05-14
+
+### Added — Anime.js animation engine 🎬
+- Integrated [anime.js](https://animejs.com/) v3.2.2 via CDN
+- **Hero master timeline**: orchestrated loader → tagline → title (char-by-char with rotateX) → italic → subtitle → CTA → image reveal
+- **Continuous animations**: hero image floating, scroll hint bouncing, marquee items pulsing
+- **Stagger reveals** on scroll for: collections grid, proceso steps, blog cards, stats, gallery grid (center-out)
+- **Smooth counter animation** with easeOutExpo (replaces previous linear interval)
+- **Tab transitions** in ficha técnica: fade-out → swap → fade-in + dots staggered with easeOutBack
+- **Lightbox transitions**: scale-in on open, slide left/right on prev/next
+- **Magnetic buttons** with anime easing (easeOutElastic on release for spring effect)
+- **Proceso icons** spin 360° on hover with scale pulse
+- **Hero parallax** for mountains SVG controlled by anime.set()
+- **Language switch** with fade transition during translation swap
+
+### Changed
+- Removed CSS `@keyframes` animations from hero elements (now driven by anime.js)
+- Counter logic refactored to use anime.js update callbacks
+
+---
+
 ## [1.0.0] - 2026-05-14
 
 ### 🎉 Initial release — Production-ready
