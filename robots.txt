@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /img/ficha-tecnica.pdf
+
+Sitemap: https://otaima.co/sitemap.xml

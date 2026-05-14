@@ -1,0 +1,57 @@
+# ─── OS ───
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# ─── Editors / IDEs ───
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ─── Dependencies ───
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ─── Build outputs ───
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# ─── Logs ───
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# ─── Environment ───
+.env
+.env.local
+.env.*.local
+
+# ─── Cache ───
+.cache/
+.parcel-cache/
+.eslintcache
+
+# ─── Deploy ───
+.netlify/
+.vercel/
+.firebase/
+
+# ─── Temp ───
+tmp/
+temp/
+*.tmp
+
+# ─── Local backups ───
+*.bak
+*.backup
+otaima-web-skeleton.html
