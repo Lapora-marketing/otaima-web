@@ -8,13 +8,11 @@
 <meta name="theme-color" content="#0a0807">
 <link rel="canonical" href="https://otaima.co/colecciones/calarma">
 
-<!-- OG -->
 <meta property="og:type" content="product">
 <meta property="og:title" content="OTAIMA Calarma — El alma del Páramo de Las Hermosas">
 <meta property="og:description" content="Café de origen Tolima. 100% arábica cultivado entre 1.800 y 2.000 m.s.n.m.">
 <meta property="og:image" content="https://otaima.co/img/calarma.png">
 
-<!-- Schema.org Product -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,11 +22,7 @@
   "description": "Café de origen Páramo Las Hermosas, Tolima. Perfil balanceado, cuerpo medio, acidez brillante. Notas de chocolate, cítricos y caramelo. 500g grano entero.",
   "brand": {"@type": "Brand", "name": "OTAIMA"},
   "category": "Café de origen",
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "COP",
-    "availability": "https://schema.org/InStock"
-  }
+  "offers": {"@type": "Offer", "priceCurrency": "COP", "availability": "https://schema.org/InStock"}
 }
 </script>
 
@@ -41,11 +35,9 @@
 <link rel="stylesheet" href="../assets/product.css">
 
 <style>
-  /* CALARMA · Verde bosque accent */
   :root {
     --accent: #c9a961;
     --accent-soft: rgba(201, 169, 97, 0.18);
-    --leaf: #4a5d3a;
   }
   body { background: linear-gradient(180deg, var(--bg) 0%, #0c0e0a 100%); }
 </style>
@@ -62,35 +54,42 @@
   <a href="#comprar" class="nav-cta">Comprar</a>
 </nav>
 
-<!-- HERO 3D -->
-<section class="product-hero">
-  <div class="product-info">
-    <div class="product-breadcrumb">
-      <a href="../index.html">OTAIMA</a>
-      <span>›</span>
-      <a href="../index.html#colecciones">Colecciones</a>
-      <span>›</span>
-      <span>Calarma</span>
-    </div>
-    <div class="product-line">Edición Especial · 500g</div>
-    <h1 class="product-name">Calarma</h1>
-    <div class="product-tagline">El alma del Páramo de Las Hermosas</div>
-    <p class="product-intro">Cultivado en el corazón del Tolima, entre la niebla del páramo y la fertilidad del suelo volcánico del Nevado. Calarma es el café que las familias cafeteras de Cajamarca llevan generaciones perfeccionando.</p>
-    <div class="product-actions">
-      <a href="#comprar" class="btn-primary">Comprar · $58.000</a>
-      <a href="#historia" class="btn-secondary"><span>Conocer la Historia</span> <span class="arrow">↓</span></a>
-    </div>
-  </div>
+<!-- SCROLL STORY: Bolsa fija + apertura + granos cayendo -->
+<section class="scroll-story">
+  <div class="bean-layer"></div>
 
-  <div class="stage-3d stage-3d-canvas" id="bag3DContainer" aria-label="Vista 3D interactiva de la bolsa Calarma"></div>
-  <div class="rotation-hint" style="position:absolute; bottom:6rem; left:50%; transform:translateX(-50%); z-index:10;">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9"/><polyline points="3 4 3 12 11 12"/></svg>
-    Arrastra para rotar
+  <div class="story-stage">
+    <!-- LEFT: Bolsa fija -->
+    <div class="story-bag-wrap">
+      <div class="story-bag">
+        <div class="story-bag-spout"></div>
+        <img src="../img/calarma.png" alt="OTAIMA Calarma 500g">
+      </div>
+    </div>
+
+    <!-- RIGHT: Texto principal -->
+    <div class="story-text">
+      <div class="product-breadcrumb">
+        <a href="../index.html">OTAIMA</a>
+        <span>›</span>
+        <a href="../index.html#colecciones">Colecciones</a>
+        <span>›</span>
+        <span>Calarma</span>
+      </div>
+      <div class="product-line">Edición Especial · 500g</div>
+      <h1 class="product-name">Calarma</h1>
+      <div class="product-tagline">El alma del Páramo de Las Hermosas</div>
+      <p class="product-intro">Cultivado en el corazón del Tolima, entre la niebla del páramo y la fertilidad del suelo volcánico del Nevado. Calarma es el café que las familias cafeteras de Cajamarca llevan generaciones perfeccionando.</p>
+      <div class="product-actions">
+        <a href="#comprar" class="btn-primary">Comprar · $58.000</a>
+        <a href="#historia" class="btn-secondary"><span>Conocer la Historia</span> <span class="arrow">↓</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- HISTORIA TOLIMA -->
-<section class="historia" id="historia">
+<section class="historia" id="historia" style="position:relative; z-index:5;">
   <div class="historia-container">
     <div class="reveal">
       <div class="section-label centered">La historia detrás del grano</div>
@@ -113,8 +112,7 @@
   </div>
 </section>
 
-<!-- PERFIL DE CATA -->
-<section class="cata">
+<section class="cata" style="position:relative; z-index:5;">
   <div class="cata-container">
     <div class="cata-visual reveal">
       <div class="cata-circle">
@@ -163,8 +161,7 @@
   </div>
 </section>
 
-<!-- METODOS DE PREPARACION -->
-<section class="metodos">
+<section class="metodos" style="position:relative; z-index:5;">
   <div class="metodos-header reveal">
     <div class="section-label centered">Cómo prepararlo</div>
     <h2 class="section-title centered">El ritual <em>Calarma</em>.</h2>
@@ -213,8 +210,7 @@
   </div>
 </section>
 
-<!-- SPECS -->
-<section class="specs">
+<section class="specs" style="position:relative; z-index:5;">
   <div class="specs-header reveal">
     <div class="section-label centered">Ficha técnica</div>
     <h2 class="section-title centered">Cada detalle <em>cuenta</em>.</h2>
@@ -244,8 +240,7 @@
   </div>
 </section>
 
-<!-- CTA FINAL -->
-<section class="cta-final" id="comprar">
+<section class="cta-final" id="comprar" style="position:relative; z-index:5;">
   <div class="reveal">
     <div class="section-label centered">Calarma</div>
     <h2>Lleva el <em>Tolima</em> a tu mesa.</h2>
@@ -254,8 +249,10 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
+<!-- Bean pile justo antes del footer -->
+<div class="bean-pile"></div>
+
+<footer style="position:relative; z-index:5;">
   <div class="footer-container">
     <div class="footer-brand">OTAIMA</div>
     <div class="footer-meta">© 2026 OTAIMA · Tolima, Colombia · Diseñado por Lapora</div>
@@ -263,42 +260,6 @@
 </footer>
 
 <script src="../assets/product.js"></script>
-
-<!-- 3D Bag Renderer (Three.js) -->
-<script type="module">
-  import { CoffeeBag3D, isWebGLAvailable } from '../assets/bag-3d.js';
-
-  const container = document.getElementById('bag3DContainer');
-  if (container && isWebGLAvailable()) {
-    new CoffeeBag3D(container, {
-      textureUrl: '../img/calarma.png',
-      frontU: 0.005, frontW: 0.245,
-      backU: 0.265,  backW: 0.245,
-      sideU: 0.52,   sideW: 0.16,
-      accentColor: 0xc9a961,
-      bagWidth: 2.2,
-      bagHeight: 3.4,
-      bagDepth: 0.8
-    });
-  } else if (container) {
-    container.innerHTML = '<div class="fallback-img"><img src="../img/calarma.png" alt="OTAIMA Calarma" style="object-fit:cover; object-position:0% center; width:35%; height:90%;"></div>';
-  }
-</script>
-
-<!-- Fallback if module fails to load -->
-<noscript>
-  <style>#bag3DContainer { background-image: url('../img/calarma.png'); background-size: 200% auto; background-position: -10% center; background-repeat: no-repeat; }</style>
-</noscript>
-
-<script>
-  // Last resort fallback: if module didn't kick in within 4s, show static image
-  setTimeout(() => {
-    const c = document.getElementById('bag3DContainer');
-    if (c && !c.querySelector('canvas') && !c.querySelector('.fallback-img')) {
-      console.warn('3D module did not initialize, showing image fallback');
-      c.innerHTML = '<div class="fallback-img"><img src="../img/calarma.png" alt="OTAIMA Calarma" style="object-fit:cover; object-position:0% center; width:35%; height:90%;"></div>';
-    }
-  }, 4000);
-</script>
+<script src="../assets/coffee-rain.js"></script>
 </body>
 </html>

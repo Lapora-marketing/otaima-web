@@ -35,7 +35,6 @@
 <link rel="stylesheet" href="../assets/product.css">
 
 <style>
-  /* LOCOMBOCO · Cobre metálico accent */
   :root {
     --accent: #c8946a;
     --accent-soft: rgba(200, 148, 106, 0.18);
@@ -55,33 +54,38 @@
   <a href="#comprar" class="nav-cta">Comprar</a>
 </nav>
 
-<section class="product-hero">
-  <div class="product-info">
-    <div class="product-breadcrumb">
-      <a href="../index.html">OTAIMA</a>
-      <span>›</span>
-      <a href="../index.html#colecciones">Colecciones</a>
-      <span>›</span>
-      <span>Locomboco</span>
-    </div>
-    <div class="product-line">Trilogía Exótica · 500g</div>
-    <h1 class="product-name">Locomboco</h1>
-    <div class="product-tagline">El reflejo del Nevado del Tolima</div>
-    <p class="product-intro">Microlotes excepcionales cosechados a la sombra del Nevado del Tolima. Cobre sobre marrón profundo, como el atardecer cuando golpea la nieve eterna. Edición limitada para coleccionistas del buen café.</p>
-    <div class="product-actions">
-      <a href="#comprar" class="btn-primary">Comprar · $78.000</a>
-      <a href="#historia" class="btn-secondary"><span>Conocer la Historia</span> <span class="arrow">↓</span></a>
-    </div>
-  </div>
+<section class="scroll-story">
+  <div class="bean-layer"></div>
 
-  <div class="stage-3d stage-3d-canvas" id="bag3DContainer" aria-label="Vista 3D interactiva de la bolsa Locomboco"></div>
-  <div class="rotation-hint" style="position:absolute; bottom:6rem; left:50%; transform:translateX(-50%); z-index:10;">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9"/><polyline points="3 4 3 12 11 12"/></svg>
-    Arrastra para rotar
+  <div class="story-stage">
+    <div class="story-bag-wrap">
+      <div class="story-bag">
+        <div class="story-bag-spout"></div>
+        <img src="../img/locomboco.png" alt="OTAIMA Locomboco 500g">
+      </div>
+    </div>
+
+    <div class="story-text">
+      <div class="product-breadcrumb">
+        <a href="../index.html">OTAIMA</a>
+        <span>›</span>
+        <a href="../index.html#colecciones">Colecciones</a>
+        <span>›</span>
+        <span>Locomboco</span>
+      </div>
+      <div class="product-line">Trilogía Exótica · 500g</div>
+      <h1 class="product-name">Locomboco</h1>
+      <div class="product-tagline">El reflejo del Nevado del Tolima</div>
+      <p class="product-intro">Microlotes excepcionales cosechados a la sombra del Nevado del Tolima. Cobre sobre marrón profundo, como el atardecer cuando golpea la nieve eterna. Edición limitada para coleccionistas del buen café.</p>
+      <div class="product-actions">
+        <a href="#comprar" class="btn-primary">Comprar · $78.000</a>
+        <a href="#historia" class="btn-secondary"><span>Conocer la Historia</span> <span class="arrow">↓</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="historia" id="historia">
+<section class="historia" id="historia" style="position:relative; z-index:5;">
   <div class="historia-container">
     <div class="reveal">
       <div class="section-label centered">La historia detrás del grano</div>
@@ -104,13 +108,12 @@
   </div>
 </section>
 
-<section class="cata">
+<section class="cata" style="position:relative; z-index:5;">
   <div class="cata-container">
     <div class="cata-visual reveal">
       <div class="cata-circle">
         <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8">
           <path d="M4 22 L9 8 L13 14 L17 4 L20 22 Z"/>
-          <path d="M14 12 L16 10"/>
           <circle cx="17" cy="4" r="1.2" fill="currentColor"/>
         </svg>
       </div>
@@ -153,7 +156,7 @@
   </div>
 </section>
 
-<section class="metodos">
+<section class="metodos" style="position:relative; z-index:5;">
   <div class="metodos-header reveal">
     <div class="section-label centered">Cómo prepararlo</div>
     <h2 class="section-title centered">El ritual <em>Locomboco</em>.</h2>
@@ -202,7 +205,7 @@
   </div>
 </section>
 
-<section class="specs">
+<section class="specs" style="position:relative; z-index:5;">
   <div class="specs-header reveal">
     <div class="section-label centered">Ficha técnica</div>
     <h2 class="section-title centered">Microlote <em>excepcional</em>.</h2>
@@ -232,7 +235,7 @@
   </div>
 </section>
 
-<section class="cta-final" id="comprar">
+<section class="cta-final" id="comprar" style="position:relative; z-index:5;">
   <div class="reveal">
     <div class="section-label centered">Locomboco</div>
     <h2>Edición <em>limitada</em>. Belleza eterna.</h2>
@@ -241,7 +244,9 @@
   </div>
 </section>
 
-<footer>
+<div class="bean-pile"></div>
+
+<footer style="position:relative; z-index:5;">
   <div class="footer-container">
     <div class="footer-brand">OTAIMA</div>
     <div class="footer-meta">© 2026 OTAIMA · Tolima, Colombia · Diseñado por Lapora</div>
@@ -249,35 +254,6 @@
 </footer>
 
 <script src="../assets/product.js"></script>
-
-<!-- 3D Bag Renderer (Three.js) -->
-<script type="module">
-  import { CoffeeBag3D, isWebGLAvailable } from '../assets/bag-3d.js';
-
-  const container = document.getElementById('bag3DContainer');
-  if (container && isWebGLAvailable()) {
-    new CoffeeBag3D(container, {
-      textureUrl: '../img/locomboco.png',
-      frontU: 0.005, frontW: 0.245,
-      backU: 0.265,  backW: 0.245,
-      sideU: 0.52,   sideW: 0.16,
-      accentColor: 0xc8946a,
-      bagWidth: 2.2,
-      bagHeight: 3.4,
-      bagDepth: 0.8
-    });
-  } else if (container) {
-    container.innerHTML = '<div class="fallback-img"><img src="../img/locomboco.png" alt="OTAIMA Locomboco" style="object-fit:cover; object-position:0% center; width:35%; height:90%;"></div>';
-  }
-</script>
-
-<script>
-  setTimeout(() => {
-    const c = document.getElementById('bag3DContainer');
-    if (c && !c.querySelector('canvas') && !c.querySelector('.fallback-img')) {
-      c.innerHTML = '<div class="fallback-img"><img src="../img/locomboco.png" alt="OTAIMA Locomboco" style="object-fit:cover; object-position:0% center; width:35%; height:90%;"></div>';
-    }
-  }, 4000);
-</script>
+<script src="../assets/coffee-rain.js"></script>
 </body>
 </html>

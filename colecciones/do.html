@@ -35,7 +35,6 @@
 <link rel="stylesheet" href="../assets/product.css">
 
 <style>
-  /* DO · Crema marfil accent (más cálido) */
   :root {
     --accent: #e6c989;
     --accent-soft: rgba(230, 201, 137, 0.15);
@@ -55,33 +54,38 @@
   <a href="#comprar" class="nav-cta">Comprar</a>
 </nav>
 
-<section class="product-hero">
-  <div class="product-info">
-    <div class="product-breadcrumb">
-      <a href="../index.html">OTAIMA</a>
-      <span>›</span>
-      <a href="../index.html#colecciones">Colecciones</a>
-      <span>›</span>
-      <span>Do</span>
-    </div>
-    <div class="product-line">Café de Origen · 500g</div>
-    <h1 class="product-name">Do</h1>
-    <div class="product-tagline">La pureza absoluta del Tolima</div>
-    <p class="product-intro">Una sola finca. Una sola cosecha. Un solo objetivo: el café más limpio y honesto que sabemos hacer. Do es la primera nota de nuestra escala. Lo esencial, sin artificios.</p>
-    <div class="product-actions">
-      <a href="#comprar" class="btn-primary">Comprar · $52.000</a>
-      <a href="#historia" class="btn-secondary"><span>Conocer la Historia</span> <span class="arrow">↓</span></a>
-    </div>
-  </div>
+<section class="scroll-story">
+  <div class="bean-layer"></div>
 
-  <div class="stage-3d stage-3d-canvas" id="bag3DContainer" aria-label="Vista 3D interactiva de la bolsa Do"></div>
-  <div class="rotation-hint" style="position:absolute; bottom:6rem; left:50%; transform:translateX(-50%); z-index:10;">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9"/><polyline points="3 4 3 12 11 12"/></svg>
-    Arrastra para rotar
+  <div class="story-stage">
+    <div class="story-bag-wrap">
+      <div class="story-bag">
+        <div class="story-bag-spout"></div>
+        <img src="../img/do.png" alt="OTAIMA Do 500g">
+      </div>
+    </div>
+
+    <div class="story-text">
+      <div class="product-breadcrumb">
+        <a href="../index.html">OTAIMA</a>
+        <span>›</span>
+        <a href="../index.html#colecciones">Colecciones</a>
+        <span>›</span>
+        <span>Do</span>
+      </div>
+      <div class="product-line">Café de Origen · 500g</div>
+      <h1 class="product-name">Do</h1>
+      <div class="product-tagline">La pureza absoluta del Tolima</div>
+      <p class="product-intro">Una sola finca. Una sola cosecha. Un solo objetivo: el café más limpio y honesto que sabemos hacer. Do es la primera nota de nuestra escala. Lo esencial, sin artificios.</p>
+      <div class="product-actions">
+        <a href="#comprar" class="btn-primary">Comprar · $52.000</a>
+        <a href="#historia" class="btn-secondary"><span>Conocer la Historia</span> <span class="arrow">↓</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="historia" id="historia">
+<section class="historia" id="historia" style="position:relative; z-index:5;">
   <div class="historia-container">
     <div class="reveal">
       <div class="section-label centered">La historia detrás del grano</div>
@@ -104,15 +108,13 @@
   </div>
 </section>
 
-<section class="cata">
+<section class="cata" style="position:relative; z-index:5;">
   <div class="cata-container">
     <div class="cata-visual reveal">
       <div class="cata-circle">
         <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8">
           <circle cx="12" cy="12" r="8"/>
           <circle cx="12" cy="12" r="4"/>
-          <line x1="12" y1="4" x2="12" y2="2"/>
-          <line x1="12" y1="22" x2="12" y2="20"/>
         </svg>
       </div>
     </div>
@@ -154,7 +156,7 @@
   </div>
 </section>
 
-<section class="metodos">
+<section class="metodos" style="position:relative; z-index:5;">
   <div class="metodos-header reveal">
     <div class="section-label centered">Cómo prepararlo</div>
     <h2 class="section-title centered">El ritual <em>Do</em>.</h2>
@@ -166,7 +168,6 @@
         <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
           <path d="M8 2 L8 6 L16 6 L16 2 Z"/>
           <path d="M6 6 L18 6 L17 22 L7 22 Z"/>
-          <line x1="9" y1="10" x2="15" y2="10"/>
         </svg>
       </div>
       <h3>V60 · Pour Over</h3>
@@ -192,7 +193,6 @@
           <path d="M7 22 L7 13 L17 13 L17 22 Z"/>
           <path d="M9 13 L9 8 L15 8 L15 13"/>
           <path d="M15 10 L18 10 L18 14 L15 14"/>
-          <path d="M10 8 Q10 5 12 5 Q14 5 14 8"/>
         </svg>
       </div>
       <h3>Cafetera Moka</h3>
@@ -202,7 +202,7 @@
   </div>
 </section>
 
-<section class="specs">
+<section class="specs" style="position:relative; z-index:5;">
   <div class="specs-header reveal">
     <div class="section-label centered">Ficha técnica</div>
     <h2 class="section-title centered">Cada detalle <em>cuenta</em>.</h2>
@@ -232,7 +232,7 @@
   </div>
 </section>
 
-<section class="cta-final" id="comprar">
+<section class="cta-final" id="comprar" style="position:relative; z-index:5;">
   <div class="reveal">
     <div class="section-label centered">Do</div>
     <h2>Lo <em>esencial</em>, perfectamente hecho.</h2>
@@ -241,7 +241,9 @@
   </div>
 </section>
 
-<footer>
+<div class="bean-pile"></div>
+
+<footer style="position:relative; z-index:5;">
   <div class="footer-container">
     <div class="footer-brand">OTAIMA</div>
     <div class="footer-meta">© 2026 OTAIMA · Tolima, Colombia · Diseñado por Lapora</div>
@@ -249,35 +251,6 @@
 </footer>
 
 <script src="../assets/product.js"></script>
-
-<!-- 3D Bag Renderer (Three.js) -->
-<script type="module">
-  import { CoffeeBag3D, isWebGLAvailable } from '../assets/bag-3d.js';
-
-  const container = document.getElementById('bag3DContainer');
-  if (container && isWebGLAvailable()) {
-    new CoffeeBag3D(container, {
-      textureUrl: '../img/do.png',
-      frontU: 0.005, frontW: 0.245,
-      backU: 0.265,  backW: 0.245,
-      sideU: 0.52,   sideW: 0.16,
-      accentColor: 0xe6c989,
-      bagWidth: 2.2,
-      bagHeight: 3.4,
-      bagDepth: 0.8
-    });
-  } else if (container) {
-    container.innerHTML = '<div class="fallback-img"><img src="../img/do.png" alt="OTAIMA Do" style="object-fit:cover; object-position:0% center; width:35%; height:90%;"></div>';
-  }
-</script>
-
-<script>
-  setTimeout(() => {
-    const c = document.getElementById('bag3DContainer');
-    if (c && !c.querySelector('canvas') && !c.querySelector('.fallback-img')) {
-      c.innerHTML = '<div class="fallback-img"><img src="../img/do.png" alt="OTAIMA Do" style="object-fit:cover; object-position:0% center; width:35%; height:90%;"></div>';
-    }
-  }, 4000);
-</script>
+<script src="../assets/coffee-rain.js"></script>
 </body>
 </html>
