@@ -82,20 +82,10 @@
     </div>
   </div>
 
-  <div class="stage-3d" aria-label="Vista 3D interactiva de la bolsa Calarma">
-    <div class="bag-3d">
-      <div class="bag-face front">
-        <img src="../img/calarma.png" alt="OTAIMA Calarma 500g - Vista frontal">
-      </div>
-      <div class="bag-face back">
-        <img src="../img/calarma.png" alt="OTAIMA Calarma 500g - Vista posterior">
-      </div>
-      <div class="bag-shadow"></div>
-    </div>
-    <div class="rotation-hint">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9"/><polyline points="3 4 3 12 11 12"/></svg>
-      Arrastra para rotar
-    </div>
+  <div class="stage-3d stage-3d-canvas" id="bag3DContainer" aria-label="Vista 3D interactiva de la bolsa Calarma"></div>
+  <div class="rotation-hint" style="position:absolute; bottom:6rem; left:50%; transform:translateX(-50%); z-index:10;">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9"/><polyline points="3 4 3 12 11 12"/></svg>
+    Arrastra para rotar
   </div>
 </section>
 
@@ -273,5 +263,25 @@
 </footer>
 
 <script src="../assets/product.js"></script>
+
+<!-- 3D Bag Renderer (Three.js) -->
+<script type="module">
+  import { CoffeeBag3D } from '../assets/bag-3d.js';
+
+  const container = document.getElementById('bag3DContainer');
+  if (container) {
+    new CoffeeBag3D(container, {
+      textureUrl: '../img/calarma.png',
+      // Calarma layout: frente (0-0.25), dorso (0.25-0.5), laterales (0.5-1.0)
+      frontU: 0.005, frontW: 0.245,
+      backU: 0.265,  backW: 0.245,
+      sideU: 0.52,   sideW: 0.16,
+      accentColor: 0xc9a961,
+      bagWidth: 2.2,
+      bagHeight: 3.4,
+      bagDepth: 0.8
+    });
+  }
+</script>
 </body>
 </html>

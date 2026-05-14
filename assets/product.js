@@ -14,11 +14,12 @@
     }, 800);
   });
 
-  // ─── 3D BAG INTERACTION ───
-  const stage = document.querySelector('.stage-3d');
-  const bag = document.querySelector('.bag-3d');
+  // ─── 3D BAG INTERACTION (legacy CSS 3D - solo si no es canvas Three.js ni sobres) ───
+  const stage = document.querySelector('.stage-3d:not(.stage-3d-canvas)');
+  const bag = stage?.querySelector('.bag-3d');
+  const isSobresStack = bag?.querySelector('.sobres-stack');
 
-  if (stage && bag) {
+  if (stage && bag && !isSobresStack) {
     let autoRotate = true;
     let rotationY = 0;
     let rotationX = -8;
